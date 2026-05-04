@@ -57,7 +57,7 @@ const Home: FC = () => {
       <section style={{ background: C.navy2, padding: "6rem 6%" }}>
         <FadeIn><Eyebrow t="Where We Add Value" /></FadeIn>
         <FadeIn delay={0.1}><H2 style={{ marginBottom: "3.5rem" }}>Four areas of focus</H2></FadeIn>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.5rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.5rem" }}>
           {pillars.map((p, i) => <PillarCard key={p.title} p={p} delay={i * 0.1} />)}
         </div>
       </section>

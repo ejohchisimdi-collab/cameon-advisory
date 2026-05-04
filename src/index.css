@@ -260,3 +260,9 @@
   flex-direction: column;
   box-sizing: border-box;
 }
+@media (max-width: 900px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 540px) {
+  .pillars-grid { grid-template-columns: 1fr !important; }
+}
