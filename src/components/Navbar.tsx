@@ -1,6 +1,6 @@
 import { type FC, useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { C, serif, sans } from "../tokens";
+import { C, sans } from "../tokens";
 import { GoldBtn } from "./ui/GoldBtn";
 
 const links = [
@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
   return (
     <nav style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
-      height: 68, padding: "0 6%", display: "flex", alignItems: "center",
+      height: 90, padding: "0 6%", display: "flex", alignItems: "center",
       justifyContent: "space-between",
       background: scrolled || open ? "rgba(10,15,30,.97)" : "transparent",
       borderBottom: scrolled ? `1px solid rgba(200,169,110,.18)` : "1px solid transparent",
@@ -32,14 +32,11 @@ export const Navbar: FC = () => {
     }}>
       {/* Logo */}
       <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
-        <div style={{ fontFamily: serif, fontSize: "1.3rem", color: C.accent, letterSpacing: ".1em" }}>CAMEON</div>
-        <div style={{ fontFamily: sans, fontSize: ".6rem", letterSpacing: ".22em", color: C.muted, textTransform: "uppercase", marginTop: 2 }}>
-          Advisory & Consulting
-        </div>
+        <img src="/logo.png" alt="Cameon Advisory" style={{ height: 80, width: "auto" }} />
       </div>
 
       {/* Desktop links */}
-      <ul style={{ display: "flex", gap: "2.2rem", listStyle: "none", alignItems: "center" }} className="desktop-nav">
+      <ul style={{ display: "flex", gap: "2.2rem", listStyle: "none", alignItems: "center", margin: 0, padding: 0 }} className="desktop-nav">
         {links.map(({ label, path }) => (
           <li key={label}>
             <NavLink
@@ -63,7 +60,7 @@ export const Navbar: FC = () => {
         {[0, 1, 2].map((i) => (
           <span key={i} style={{
             width: 24, height: 2, background: C.light, display: "block", transition: "all .3s",
-            transform: open && i === 0 ? "rotate    (45deg) translate(5px,5px)"
+            transform: open && i === 0 ? "rotate(45deg) translate(5px,5px)"
                      : open && i === 2 ? "rotate(-45deg) translate(5px,-5px)" : "none",
             opacity: open && i === 1 ? 0 : 1,
           }} />
@@ -73,7 +70,7 @@ export const Navbar: FC = () => {
       {/* Mobile menu */}
       {open && (
         <div style={{
-          position: "absolute", top: 68, left: 0, right: 0,
+          position: "absolute", top: 90, left: 0, right: 0,
           background: "rgba(10,15,30,.98)", padding: "2rem 6%",
           display: "flex", flexDirection: "column", gap: "1.5rem",
         }}>
@@ -88,4 +85,3 @@ export const Navbar: FC = () => {
     </nav>
   );
 };
-
