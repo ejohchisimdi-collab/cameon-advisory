@@ -15,6 +15,15 @@ interface Theme {
   items: string[];
 }
 
+interface Theme {
+  icon: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  items: string[];
+  countries: string[];
+}
+
 const themes: Theme[] = [
   {
     icon: "◈",
@@ -27,6 +36,7 @@ const themes: Theme[] = [
       "Partnership and business development support",
       "Strategic prioritisation for scale",
     ],
+    countries: ["Kenya", "Rwanda", "Nigeria", "Uganda"],
   },
   {
     icon: "◉",
@@ -39,6 +49,7 @@ const themes: Theme[] = [
       "Customer and market insight",
       "Commercial model and revenue strategy support",
     ],
+    countries: ["Ethiopia", "Kenya", "Nigeria", "Rwanda", "Tanzania"],
   },
   {
     icon: "◎",
@@ -51,6 +62,7 @@ const themes: Theme[] = [
       "Workflow and process improvement",
       "Practical internal systems for growth and accountability",
     ],
+    countries: ["Nigeria", "Uganda"],
   },
 ];
 
@@ -88,6 +100,19 @@ const ThemeCard: FC<{ t: Theme; delay: number }> = ({ t, delay }) => {
             </li>
           ))}
         </ul>
+        <div style={{ marginTop: "auto", paddingTop: ".75rem", borderTop: `1px solid rgba(200,169,110,.15)`, display: "flex", flexWrap: "wrap", gap: ".4rem" }}>
+          {t.countries.map(c => (
+            <span key={c} style={{
+              fontFamily: sans,
+              fontSize: ".72rem",
+              color: C.accent,
+              border: `1px solid rgba(200,169,110,.4)`,
+              borderRadius: "999px",
+              padding: ".2rem .7rem",
+              letterSpacing: ".03em",
+            }}>{c}</span>
+          ))}
+        </div>
       </div>
     </FadeIn>
   );
@@ -137,8 +162,8 @@ const Engagements: FC = () => {
 
       {/* ── Theme Cards ── */}
       <section className="eng-section" style={{ background: C.navy2, padding: "6rem 6%" }}>
-        <FadeIn><Eyebrow t="Areas of Work" /></FadeIn>
-        <FadeIn delay={0.1}><H2 style={{ marginBottom: "3rem" }}>Three engagement themes</H2></FadeIn>
+        <FadeIn><Eyebrow t="Past Work" /></FadeIn>
+        <FadeIn delay={0.1}><H2 style={{ marginBottom: "3rem" }}>Three engagement themes emerge</H2></FadeIn>
         <div className="eng-grid" style={{ display: "grid", gap: "1.5rem" }}>
           {themes.map((t, i) => <ThemeCard key={t.title} t={t} delay={i * 0.1} />)}
         </div>
