@@ -8,6 +8,7 @@ const links = [
   { label: "About",    path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Contact",  path: "/contact" },
+  {label:"Engagements",path:"/engagements"}
 ];
 
 function useIsMobile(breakpoint = 768) {
